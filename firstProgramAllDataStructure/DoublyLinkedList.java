@@ -1,23 +1,23 @@
 public class DoublyLinkedList<T>{
     // Referencia  a el node raiz o la cabeza de la lista.
-    private Node<T> head;
-    private Node<T> tail;
+    private NodeD<T> head;
+    private NodeD<T> tail;
     private int listCount;
 
     // constructor
     public DoublyLinkedList() {
         // Se asigna la cabeza a un nodo nulo y el contador a 0
-        head = new Node<>(null);
-        tail = new Node<>(null);
+        head = new NodeD<>(null);
+        tail = new NodeD<>(null);
         listCount = 0;
     }
 
     public void add(T data)
     // Agrega el nodo al final de la lista.
     {
-        Node<T> Temp = new Node<>(data);
-        Node<T> FirstOne = head;
-        Node<T> LastOne = tail;
+        NodeD<T> Temp = new NodeD<>(data);
+        NodeD<T> FirstOne = head;
+        NodeD<T> LastOne = tail;
     // Si la lista esta vacia se agrega el nuevo nodo
         if(FirstOne.getNext() == null ){
           FirstOne.setNext(Temp);
@@ -36,7 +36,7 @@ public class DoublyLinkedList<T>{
         if (index <= 0)
             return null;
 
-        Node<T> Current = head.getNext();
+        NodeD<T> Current = head.getNext();
         for (int i = 1; i < index; i++) {
             if (Current.getNext() == null)
                 return null;
@@ -51,7 +51,7 @@ public class DoublyLinkedList<T>{
         //
         if (index < 1 || index > size())
             return false;
-        Node<T> Current = head;
+        NodeD<T> Current = head;
         int a = index +1;
         for (int i = 1; i <= index; i++) {
             if (Current.getNext() == null)
@@ -78,16 +78,16 @@ public class DoublyLinkedList<T>{
         return true;
       }
 
-      Node<T> Current = head;
+      NodeD<T> Current = head;
 
       for (int i = 1; i < index ; i++ ) {
         Current = Current.getNext();
       }
-      Node<T> Temp;
+      NodeD<T> Temp;
       if (index == 1) {
-        Temp = new Node<T>(data,Current.getNext(),null);
+        Temp = new NodeD<T>(data,Current.getNext(),null);
       }else{
-        Temp = new Node<T>(data,Current.getNext(),Current);
+        Temp = new NodeD<T>(data,Current.getNext(),Current);
       }
       Current.getNext().setLast(Temp);
       Current.setNext(Temp);
@@ -101,11 +101,11 @@ public class DoublyLinkedList<T>{
             return true;
         }
 
-        Node<T> Current = head;
+        NodeD<T> Current = head;
         for (int i = 1; i < index; i++) {
              Current = Current.getNext();
         }
-        Node<T> Temp = new Node<>(data,Current.getNext(),Current);
+        NodeD<T> Temp = new NodeD<>(data,Current.getNext(),Current);
         Current.getNext().setLast(Temp);
         Current.setNext(Temp);
         listCount++; // aumenta  el contador de nodos
@@ -115,7 +115,7 @@ public class DoublyLinkedList<T>{
     public <Object extends Comparable<Object>> boolean addOrdenado(T data)
     // agrega el elemento en la posición indicada
     {
-        Node<T> Current = head;
+        NodeD<T> Current = head;
         int a=1;
         Object data1 = (Object) data;
         while(Current.getNext()!=null &&
@@ -138,7 +138,7 @@ public class DoublyLinkedList<T>{
 
     public String iterateForward()
     {
-        Node<T> Current = head.getNext();
+        NodeD<T> Current = head.getNext();
         String output = "";
         while (Current != null) {
             output += "[" + Current.getData().toString() + "]";
@@ -149,7 +149,7 @@ public class DoublyLinkedList<T>{
 
     public String iterateBackward()
     {
-        Node<T> Current = tail.getLast();
+        NodeD<T> Current = tail.getLast();
         String output = "";
         while (Current != null) {
           output += "[" + Current.getData().toString() + "]";

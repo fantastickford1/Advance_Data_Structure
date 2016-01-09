@@ -3,7 +3,7 @@ import java.io.Serializable;
 public class ArbolB implements Serializable{
     class Nodo implements Serializable
       {
-        Customers info;
+        String info;
         Nodo izq, der;
       }
       Nodo raiz;
@@ -14,7 +14,7 @@ public class ArbolB implements Serializable{
           raiz=null;
       }
 
-      public void insertar (Customers info)
+      public void insertar (String info)
       {
           Nodo nuevo;
           nuevo = new Nodo ();

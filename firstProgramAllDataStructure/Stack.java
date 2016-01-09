@@ -4,7 +4,7 @@ public class Stack<T>{
   private int tope;
 
   public Stack(int capacidad){
-    pila = new T[capacidad];
+    pila = (T[]) new Object[capacidad];
     tope = -1;
   }
 
@@ -19,7 +19,7 @@ public class Stack<T>{
 
   public T pop(){
     if(isEmpty())
-      return 0;
+      return null;
     return pila[tope--];
   }
 

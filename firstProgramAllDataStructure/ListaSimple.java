@@ -1,20 +1,20 @@
 public class ListaSimple<T>{
     // Referencia  a el node raiz o la cabeza de la lista.
-    private Node<T> head;
+    private NodeS<T> head;
     private int listCount;
 
     // constructor
     public ListaSimple() {
         // Se asigna la cabeza a un nodo nulo y el contador a 0
-        head = new Node<>(null);
+        head = new NodeS<>(null);
         listCount = 0;
     }
 
     public void add(T data)
     // Agrega el nodo al final de la lista.
     {
-        Node<T> Temp = new Node<>(data);
-        Node<T> Current = head;
+        NodeS<T> Temp = new NodeS<>(data);
+        NodeS<T> Current = head;
         // Se tiene que posicionar en la cabeza para poder recorrer la lista y llegar al fin
         while (Current.getNext() != null) {
             Current = Current.getNext();
@@ -24,13 +24,13 @@ public class ListaSimple<T>{
         listCount++;// incrementamos el contador de nodos
     }
 
-     public Node<T> get(int index)
+     public NodeS<T> get(int index)
     // Regresa el nodo en la posición indicada por index
     {
         if (index <= 0)
             return null;
 
-        Node<T> Current = head.getNext();
+        NodeS<T> Current = head.getNext();
         for (int i = 1; i < index; i++) {
             if (Current.getNext() == null)
                 return null;
@@ -45,7 +45,7 @@ public class ListaSimple<T>{
         //
         if (index < 1 || index > size())
             return false;
-        Node<T> Current = head;
+        NodeS<T> Current = head;
         for (int i = 1; i < index; i++) {
             if (Current.getNext() == null)
                 return false;
@@ -66,12 +66,12 @@ public class ListaSimple<T>{
             add(data);
             return true;
         }
-        Node<T> Current = head;
+        NodeS<T> Current = head;
         int a=index+1;
         for (int i = 1; i < index; i++) {
              Current = Current.getNext();
         }
-        Node<T> Temp = new Node<>(data,Current.getNext());
+        NodeS<T> Temp = new NodeS<>(data,Current.getNext());
         Current.setNext(Temp);
         listCount++; // aumenta  el contador de nodos
         return true;
@@ -80,7 +80,7 @@ public class ListaSimple<T>{
     public <Object extends Comparable<Object>> boolean addOrdenado(T data)
     // agrega el elemento en la posición indicada
     {
-        Node<T> Current = head;
+        NodeS<T> Current = head;
         int a=1;
         Object data1 = (Object) data;
         while(Current.getNext()!=null && data1.compareTo((Object)Current.getNext().getData()) > 0) {
@@ -98,7 +98,7 @@ public class ListaSimple<T>{
 
     public String toString()
     {
-        Node<T> Current = head.getNext();
+        NodeS<T> Current = head.getNext();
         String output = "";
         while (Current != null) {
             output += "[" + Current.getData().toString() + "]";

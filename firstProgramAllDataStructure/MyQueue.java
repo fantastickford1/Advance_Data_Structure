@@ -12,7 +12,7 @@ public class MyQueue <T>{
 
   public MyQueue(int s){
     this.size = s;
-    data = new T[s];
+    data = (T[]) new Object[s];
   }
 
   public boolean isEmpty(){
