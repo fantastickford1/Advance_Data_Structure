@@ -168,11 +168,13 @@ public class Menus{
       break;
       case "6":
         System.out.println("Lista Doblemente Enlazada Ascendente: ");
-        ld.iterateForward();
+        System.out.println(ld.iterateForward());
+        menuListaDoble();
       break;
       case "7":
         System.out.println("Lista Doblemente Enlazada Descendente: ");
-        ld.iterateBackward();
+        System.out.println(ld.iterateBackward());
+        menuListaDoble();
       break;
       case "8":
       break;
@@ -220,14 +222,20 @@ public class Menus{
         }catch (Exception e) {
           System.out.println(e.getMessage());
         }
+        menuCola();
        break;
        case "4":
           System.out.println("la cola esta vacia? ");
-          System.out.println(cola.isEmpty());
+          if (cola.isEmpty()) {
+            System.out.println(true);
+          }else
+            System.out.println(false);
+          menuCola();
        break;
        case "5":
          System.out.println("el tamaño de la cola es: ");
          System.out.println(cola.size());
+         menuCola();
        break;
        case "6":
        break;
@@ -275,7 +283,7 @@ public class Menus{
      String opc4= keybord.next();
      switch (opc4) {
        case "1":
-        String data = keybord.nextLine();
+        String data = keybord.next();
         arbol.insertar(data);
         menuArbol();
         break;

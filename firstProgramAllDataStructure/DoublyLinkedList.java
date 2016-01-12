@@ -59,7 +59,11 @@ public class DoublyLinkedList<T>{
              Current = Current.getNext();
         }
         Current.getLast().setNext(Current.getNext());
-        Current.getNext().setLast(Current.getLast());
+        try{
+          Current.getNext().setLast(Current.getLast());
+        }catch (Exception e) {
+
+        }
         Current.setNext(null);
         Current.setLast(null);
 
