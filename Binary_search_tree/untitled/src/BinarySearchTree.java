@@ -28,6 +28,61 @@ public class BinarySearchTree{
       }
     }
   }
+    public boolean delete(int data){
+        if(root == null)
+            return false;
+        else {
+            Node lastNode = null, reco;
+            reco = root;
+            while (reco != null){
+                lastNode = reco;
+                if (data < reco.info) {
+                    reco = reco.left;
+                    if (reco.info == data){
+                        if (isLeaf(reco)){
+                            lastNode.left = null;
+                            return true;
+                        }
+                        if (reco.left == null){
+                            lastNode = reco;
+                            reco = reco.right;
+                            lastNode.info = reco.info;
+                            lastNode.right = null;
+                            return true;
+                        }else if (reco.right == null){
+                            lastNode = reco;
+                            reco = reco.left;
+                            lastNode.info = reco.info;
+                            lastNode.left = null;
+                            return true;
+                        }
+                    }
+                }else {
+                    reco = reco.right;
+                    if (reco.info == data){
+                        if (isLeaf(reco)){
+                            lastNode.right = null;
+                            return true;
+                        }
+                        if (reco.left == null){
+                            lastNode = reco;
+                            reco = reco.right;
+                            lastNode.info = reco.info;
+                            lastNode.right = null;
+                            return true;
+                        }else if (reco.right == null){
+                            lastNode = reco;
+                            reco = reco.left;
+                            lastNode.info = reco.info;
+                            lastNode.left = null;
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
   public Node search(Node node, int data){
     if (node == null || node.info == data) {
@@ -37,37 +92,6 @@ public class BinarySearchTree{
     }else {
       return search(node.right, data);
     }
-  }
-
-  public boolean delete(Node node, int data){
-    Node aux;
-    if (node == null)
-      return false;
-    if (data < node.info) {
-      delete(node.left, data);
-    }else if (data > node.info) {
-      delete(node.right, data);
-    }else if (node.info == data) {
-      aux = node;
-      if (isLeaf(node)) {
-        node = null;
-        return true;
-      }
-      if (node.right == null) {
-        node = node.left;
-        return true;
-      }else if (node.left == null) {
-        node = node.right;
-        return true;
-      }else {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private void replace(){
-
   }
 
   public boolean isLeaf(Node node){
