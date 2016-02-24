@@ -24,8 +24,10 @@ public class BinarySearchTree{
                 last = reco;
                 if (data < reco.info)
                     reco = reco.left;
-                else
+                else if(data > reco.info)
                     reco = reco.right;
+                else
+                    return;
             }
             if (data < last.info) {
                 cont++;
