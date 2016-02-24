@@ -3,12 +3,15 @@ public class BinarySearchTree{
     private int cont = 0;
     private int nodeHeight;
     private int height = 0;
+    private String allData;
 
-    public BinarySearchTree(){
+    public BinarySearchTree()
+    {
         root = null;
     }
 
-    public void insert(int data){
+    public void insert(int data)
+    {
         Node newNode;
         newNode = new Node(data);
         if (root == null) {
@@ -34,7 +37,8 @@ public class BinarySearchTree{
         }
     }
 
-    public boolean delete(int data){
+    public boolean delete(int data)
+    {
         if (root != null){
             Node parent = null;
             Node current = root;
@@ -94,7 +98,8 @@ public class BinarySearchTree{
         return false;
     }
 
-    private Node getSuccesor(Node deleteNode){
+    private Node getSuccesor(Node deleteNode)
+    {
         Node successor = null;
         Node successorParent = null;
         Node current = deleteNode.right;
@@ -110,7 +115,8 @@ public class BinarySearchTree{
         return successor;
     }
 
-    public Node search(Node node, int data){
+    public Node search(Node node, int data)
+    {
         if (node == null || node.info == data)
             return node;
         else if (data < node.info)
@@ -119,30 +125,36 @@ public class BinarySearchTree{
             return search(node.right, data);
     }
 
-    public boolean isLeaf(Node node){
+    public boolean isLeaf(Node node)
+    {
         return (node.left == null && node.right == null);
     }
 
-    public Node getRoot(){
+    public Node getRoot()
+    {
         return root;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty()
+    {
         if (root == null || cont == 0)
             return true;
         else return false;
     }
 
-    public int getNodes(){
+    public int getNodes()
+    {
         return cont;
     }
 
-    public int getNodeHeight(Node node, int id){
+    public int getNodeHeight(Node node, int id)
+    {
         nodeHeight = 0;
         return nodeHeight(node,id);
     }
 
-    private int nodeHeight(Node node, int id){
+    private int nodeHeight(Node node, int id)
+    {
         if (node == null || node.info == id)
             return nodeHeight;
         else if (id < node.info){
@@ -155,7 +167,8 @@ public class BinarySearchTree{
         return nodeHeight;
     }
 
-    public int maxDepth(Node node) {
+    public int maxDepth(Node node)
+    {
         if (node == null) {
             return 0;
         } else {
@@ -171,4 +184,22 @@ public class BinarySearchTree{
             }
         }
     }
+
+    public String inOrder ()
+    {
+        allData = "";
+        inOrder (root);
+        return allData;
+    }
+
+    private void inOrder (Node reco)
+    {
+        if (reco != null)
+        {
+            inOrder (reco.left);
+            allData += "[" + reco.info + "]";
+            inOrder (reco.right);
+        }
+    }
+
 }

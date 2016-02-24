@@ -2,7 +2,7 @@
  * Created by Karlos on 2/20/2016.
  */
 public class Main {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
         System.out.println(tree.isEmpty());
         tree.insert(50);
@@ -28,11 +28,11 @@ public class Main {
         else
             System.out.println(node.info);
         System.out.println("The node with data 80 is a leaf?: " + tree.isLeaf(node));
-        tree.delete(105);
+        tree.delete(50);
         tree.delete(100);
         System.out.println("The tree is empty? :" + tree.isEmpty());
         System.out.println("The tree has: " + tree.getNodes() + " Nodes");
         System.out.println("The node with data 22 is " + tree.getNodeHeight(tree.getRoot(),22) + " height");
         System.out.print("The tree's height is: " + tree.maxDepth(tree.getRoot()));
-    }
+    }*/
 }

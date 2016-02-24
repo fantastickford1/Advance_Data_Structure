@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Label layoutX="201.0" layoutY="23.0" text="Binary Search Tree">
+         <font>
+            <Font name="Arial" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addField" layoutX="22.0" layoutY="77.0" />
+      <Button layoutX="71.0" layoutY="119.0" mnemonicParsing="false" onAction="#add" text="Add" />
+      <TextField fx:id="deleteField" layoutX="226.0" layoutY="77.0" />
+      <Button layoutX="274.0" layoutY="119.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <TextField fx:id="searchField" layoutX="428.0" layoutY="77.0" prefHeight="25.0" prefWidth="175.0" />
+      <Button layoutX="428.0" layoutY="119.0" mnemonicParsing="false" onAction="#search" text="Search" />
+      <Button layoutX="41.0" layoutY="240.0" mnemonicParsing="false" onAction="#isEmpty" text="The tree is empty?" />
+      <Button layoutX="490.0" layoutY="119.0" mnemonicParsing="false" onAction="#isLeaf" text="Is leaf?" />
+      <Button layoutX="43.0" layoutY="286.0" mnemonicParsing="false" onAction="#noNodes" text="Number of nodes" />
+      <Button layoutX="551.0" layoutY="119.0" mnemonicParsing="false" onAction="#nodeHeight" text="Height" />
+      <Button layoutX="56.0" layoutY="328.0" mnemonicParsing="false" onAction="#treeHeight" text="Tree's height" />
+      <TextArea fx:id="textArea" layoutX="200.0" layoutY="184.0" prefHeight="250.0" prefWidth="422.0" />
+      <Button layoutX="68.0" layoutY="367.0" mnemonicParsing="false" onAction="#inORDER" text="InOrder" />
+   </children>
+</AnchorPane>
