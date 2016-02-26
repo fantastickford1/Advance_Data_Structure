@@ -17,13 +17,8 @@ public class TreeGUI extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("mainGUI.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("mainGUI.fxml"));
         primaryStage.setTitle("Binary Search Tree");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
